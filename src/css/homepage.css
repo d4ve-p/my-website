@@ -2,6 +2,7 @@ body {
     background-image : url('../img/astolfo.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-position: center;
     background-size: cover;
     margin:0 auto;
 }
