@@ -87,8 +87,8 @@ function addOnEnterListener(e){
 function handleResponse(resp){
     resp = resp.toString().toLowerCase();
     var response = {
-        "about me" : redirect('https://d4ve-p.github.io/my-website/content/aboutme.html'),
-        "social media": redirect('https://d4ve-p.github.io/my-website/content/socialmedia.html'),
+        "about me" : redirect('content/aboutme.html'),
+        "social media": redirect('content/socialmedia.html'),
         "help" : createMessage("Lists of available commands:<br>-Help<br>-About me<br>-Social Media"),
     }
     if ((resp in response) === false){
