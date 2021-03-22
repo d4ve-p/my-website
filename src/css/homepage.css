@@ -40,26 +40,28 @@ a.terminal:hover {
     opacity: 1;
 }
 
-.terminal-line {
-    color: #FFC0CB;
-    font-family: CascadiaCode;
-    position: static;
-}
-
 input[type="text"].terminal-input {
     background: transparent;
     border: transparent;
+    border-style: hidden;
     color: #86FF90;
     outline: none;
     padding: 0;
-    margin: 1vh 0 0 1vh;
+    margin: 0 0 0 1vh;
+    outline: 0;
 }
-p.terminal-line {
-    color: #86FF90;
+
+.log {
+    margin-top: 1vh;
+}
+p.log{
     display: inline;
-    margin: 0;
 }
-p.reply-message {
+.command-input {
+    color: #86FF90;
+}
+
+.response {
     color: #CF86FF;
     padding-top: 0;
     margin-top: 0;
