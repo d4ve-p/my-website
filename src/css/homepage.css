@@ -10,6 +10,10 @@ p {
     padding: 0;
     margin: 1vh 0 0 1vh;
 }
+label {
+    padding: 0;
+    margin: 1vh 0 0 1vh;
+}
 @font-face {
     font-family: CascadiaCode;
     src: url('../font/cascadia code/Cascadia.ttf')
@@ -42,4 +46,29 @@ a.terminal:link {
 a.terminal:hover {
     color: #9AF0FF;
     opacity: 1;
+}
+
+.terminal-line {
+    color: #FFC0CB;
+    font-family: CascadiaCode;
+    position: static;
+}
+
+input[type="text"].terminal-input {
+    background: transparent;
+    border: transparent;
+    color: #86FF90;
+    outline: none;
+    padding: 0;
+    margin: 1vh 0 0 1vh;
+}
+p.terminal-line {
+    color: #86FF90;
+    display: inline;
+    margin: 0;
+}
+p.reply-message {
+    color: #CF86FF;
+    padding-top: 0;
+    margin-top: 0;
 }
