@@ -13,16 +13,34 @@
     <!-- css -->
     <link rel="stylesheet" href="src/css/homepage.css">
 
-    <!-- js -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
-
 </head>
 <body>
     <div class="foreground"></div>
     <div class="terminal">
-        <p>my-website [Version 0.1.1]</p>
+        <p>my-website [Version 0.2.1]</p>
         <p>Hosted by Github</p>
         <p><a href="https://github.com/d4ve-p/my-website" class="terminal">Website's Repository</a></p>
+        <br>
+        <p>Welcome to my terminal</p>
+        <p>To see lists of commands, type help</p>
+        <br><br>
+        <div class="terminal-line" id="user-input">
+            <label for="terminal">https://d4ve-p.github.io/my-website> $nyan </label>
+            <input type="text" name="terminal" class="terminal-input" id="terminal0" maxlength="10" autofocus>
+        </div>
     </div>
+
+    <!-- Event Listener -->
+    <script>
+        var input = document.getElementById('terminal0');
+        input.addEventListener("keyup", (e) => {
+            if(e.key == "Enter"){
+                newLine("terminal0");
+            }
+        }
+        );
+    </script>
+
+    <!-- js -->
+    <script src="src/js/terminal.js"></script>
 </body>
