@@ -1,53 +1,112 @@
-const terminalLine = "https://d4ve-p.github.io/my-website> $nyan ";
-var divElement = document.getElementById("user-input");
-var lineCount = 0;
+const terminalLine = "https://d4ve-p.github.io/my-website $nyan >";
+createUserInput();
 
-function disableTextbox(id) {
-    var toReplace = document.getElementById(id);
-    var pReplacement = document.createElement("p");
+function createUserInput() {
+    // Create elements
+    var div = document.createElement('div');
+    var p = document.createElement('p');
+    var input = document.createElement('input');
 
-    pReplacement.innerHTML = document.getElementById(id).value;
-    pReplacement.className = "terminal-line";
-    divElement.replaceChild(pReplacement, toReplace);
+    // p setup
+    p.innerHTML = terminalLine;
 
-    return createMessage();
+    // input setup
+    input.type = "text";
+    input.className = "terminal-input";
+    input.id = "input-user";
+    input.maxLength = 20;
+
+    // Div setup
+    div.id = "input-div"
+    div.appendChild(p);
+    div.appendChild(input);
+
+    var parentDiv = document.getElementById("parent")
+    parentDiv.appendChild(div);
+    addOnEnterListener('input-user');
+    input.focus();
 };
 
-function newLine(prevId) {
-    var message = document.createElement("p");
-    message.innerHTML = disableTextbox(prevId);
-    message.className = "reply-message";
+function createLog() {
+    // Create Elements
+    var div = document.createElement('div');
+    var terminalText = document.createElement('p');
+    var commandText = document.createElement('p');
 
-    var newLine = document.createElement("input");
-    var newLineLabel = document.createElement("label");
+    // div setup
+    div.className = "log";
 
-    var newId = "terminal" + lineCount
+    // terminalText Setup
+    terminalText.className = "log";
+    terminalText.innerHTML = terminalLine;
 
-    newLine.type = "text"
-    newLine.name = newId;
-    newLine.id = newId;
-    newLine.className = "terminal-input";
-    newLine.maxLength = "10";
-    newLine.autofocus = true;
+    // commandText Setup
+    var userInput = document.getElementById('input-user');
+    commandText.className = "log command-input";
+    commandText.innerHTML = userInput.value;
 
-    newLineLabel.htmlFor = newId;
-    newLineLabel.innerHTML = terminalLine;
+    // Remove child (not the abortion type)
+    var parentDiv = document.getElementById('parent');
+    var childDiv = document.getElementById('input-div');
+    parentDiv.removeChild(childDiv);
 
-    divElement.appendChild(message);
-    divElement.appendChild(newLineLabel);
-    divElement.appendChild(newLine);
-    addListener(newId);
+    // Response setup
+    var resp = handleResponse(userInput.value)();
+    var respText = null;
+    if(resp){
+        respText = document.createElement('p');
+        respText.innerHTML = resp;
+        respText.className = "response"
+    }
+    // Add terminalText and commandText and Response
+    // to new div
+    div.appendChild(terminalText);
+    div.appendChild(commandText);
+    if(respText){
+        div.appendChild(respText);
+    }
+
+    var parentDiv = document.getElementById("parent");
+    parentDiv.appendChild(div);
+
+    createUserInput();
 };
 
-function createMessage() {
-    return "Commands are not available yet!"
-}
+function addOnEnterListener(e){
+    var element = document.getElementById(e);
 
-function addListener(id) {
-    var element = document.getElementById(id);
-    element.addEventListener("keyup", (e) => {
-        if(e.key == "Enter") {
-            newLine(id);
+    element.addEventListener("keyup", (event) => {
+        if(event.key == "Enter"){
+            console.log('a');
+            createLog();
         }
-    })
-}
+    }
+    );
+};
+
+function handleResponse(resp){
+    resp = resp.toString().toLowerCase();
+    var response = {
+        "about me" : redirect('https://d4ve-p.github.io/my-website/content/aboutme.html'),
+        "social media": redirect('https://d4ve-p.github.io/my-website/content/socialmedia.html'),
+        "help" : createMessage("Lists of available commands:<br>-Help<br>-About me<br>-Social Media"),
+    }
+    if ((resp in response) === false){
+        return createMessage("Command not found");
+    }
+    return response[resp];
+};
+
+function redirect(url){
+    function _redirect(){
+        window.location.href = url;
+    }
+    return _redirect
+};
+
+function createMessage(message) {
+    function _createMessage(){
+        return message;
+    }
+    return _createMessage;
+};
