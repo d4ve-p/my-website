@@ -64,5 +64,10 @@ p.log{
 .response {
     color: #CF86FF;
     padding-top: 0;
-    margin-top: 0;
+    margin: 0 0 0 1vh;
+    text-decoration: none;
+}
+.response :link{
+    color: #CF86FF;
+    text-decoration: underline;
 }
