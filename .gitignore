@@ -1,1 +1,1 @@
-src/index.html
+index.html
