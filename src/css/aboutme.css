@@ -1,0 +1,92 @@
+body {
+    background-image : url('../img/astolfo.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    margin:0 auto;
+}
+
+.container {
+    width: calc(100% - 40vh);
+    margin: 0 20vh 0 20vh;
+}
+
+@font-face{
+    font-family: DMSerifDisplay;
+    src: url('../font/dm serif display/DMSerifDisplay-Regular.ttf');
+}
+.container .title{
+    animation: fade-in 2s;
+    text-align: center;
+    margin: 2vh 0;
+}
+.container h1.title {
+    color: #9AF0FF;
+    font-family: DMSerifDisplay;
+}
+
+@font-face{
+    font-family: DelaGothicOne;
+    src: url("../font/dela gothic one/DelaGothicOne-Regular.ttf");
+}
+.container .statusbox{
+    animation: fade-in 2s;
+    padding: 2vh 0 2vh 0;
+    background-color: #D9D9D9;
+}
+.container div.status{
+    animation: fade-in 2s;
+    text-align: left;
+    font-family: DelaGothicOne;
+    color: #17202A;
+    padding: 1.5vh 0 1.5vh 2vh;
+}
+.container p.status {
+    display:inline;
+}
+
+.circle {
+    width: 2vh;
+    height: 2vh;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #2AFF00;
+}
+
+.back {
+    margin: 4vh 0 0 0;
+    padding: 3vh 5vh 3vh 5vh;
+    background-color:#7F00E3;
+    border-color: #7F00E3;
+    border-radius: 10%;
+    color: #D4D4D4;
+    transition: all 1s;
+    text-align: center;
+    font-size: 3vh;
+}
+.back span{
+    font-family: DelaGothicOne;
+    position: relative;
+    transition: 1s;
+}
+.back:hover span:after {
+    content: 'Back';
+    position: absolute;
+    right: -3vh;
+    top: 0;
+    transition: 1s;
+}
+.back:hover span{
+    padding-right: 8vh;
+}
+
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@-webkit-keyframes fade-in{
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
