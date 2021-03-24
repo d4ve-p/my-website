@@ -1,5 +1,4 @@
 const terminalLine = "https://d4ve-p.github.io/my-website $nyan >";
-createUserInput();
 
 function createUserInput() {
     // Create elements
@@ -88,7 +87,7 @@ function addOnEnterListener(e){
 function handleResponse(resp){
     resp = resp.toString().toLowerCase();
     var response = {
-        "about me" : createMessage('About Me<br>Status: Alive<br>Age: 10<br>Hobbies: Doing anything fun<br>Likes: Anything Harmless<br>Dislikes: Violence'),
+        "about me" : redirect('content/aboutme.html'),
         "social media": createMessage('<a href="https://www.instagram.com/d4ve_p/">Instagram</a><br><a href="https://twitter.com/tdaepv">Twitter</a><br><a href="https://myanimelist.net/profile/Dave_P">MyAnimeList</a>'),
         "help" : createMessage("Lists of available commands:<br>-Help<br>-About me<br>-Social Media<br>-Clear"),
         "clear": createMessage("Consider refreshing the page?")
