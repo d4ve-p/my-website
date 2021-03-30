@@ -7,9 +7,11 @@ body {
     margin:0 auto;
 }
 
-.container {
-    width: calc(100% - 40vh);
-    margin: 0 20vh 0 20vh;
+div.container {
+    width: 80%;
+    margin: 0 10% 0 10%;
+    background-color: #17202A;
+    opacity: 0.7;
 }
 
 @font-face{
@@ -39,20 +41,13 @@ body {
     animation: fade-in 2s;
     text-align: left;
     font-family: DelaGothicOne;
-    color: #17202A;
+    color:#597cee;
     padding: 1.5vh 0 1.5vh 2vh;
 }
 .container p.status {
     display:inline;
 }
 
-.circle {
-    width: 2vh;
-    height: 2vh;
-    border-radius: 50%;
-    display: inline-block;
-    background-color: #2AFF00;
-}
 
 .back {
     margin: 4vh 0 0 0;
@@ -75,7 +70,7 @@ body {
     position: absolute;
     right: -3vh;
     top: 0;
-    transition: 1s;
+    transition: 2s;
 }
 .back:hover span{
     padding-right: 8vh;
