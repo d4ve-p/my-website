@@ -1,0 +1,84 @@
+body {
+    margin:0;
+    padding: 0;
+    background-color: #000000;
+}
+
+@font-face {
+    font-family: roboto;
+    src: url("../font/roboto/Roboto-Bold.ttf")
+}
+p {
+    color: #fff;
+    font-family: roboto;
+    font-size: 5vh;
+    margin: 0;
+}
+.top-left-container {
+    width: 50%;
+    height: 50%;
+    top: 0px;
+    left: 0px;
+    background: #f09433; 
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+    position: absolute;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.top-right-container {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    float:right;
+    background-color: #00AEEF;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.bottom-left-container {
+    width: 50%;
+    height: 50%;
+    bottom: 0px;
+    left: 0px;
+    background-color: #2E51A2;
+    position: absolute;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.bottom-right-container {
+    width: 50%;
+    height: 50%;
+    bottom: 0px;
+    right: 0px;
+    background-color: #09090A;
+    position: absolute;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.top-left-container:hover{
+    opacity: 0.7;
+}
+
+.top-right-container:hover{
+    opacity:0.7;
+}
+
+.bottom-left-container:hover {
+    opacity:0.7
+}
+
+.bottom-right-container:hover {
+    opacity:0.7
+}
