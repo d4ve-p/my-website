@@ -88,7 +88,7 @@ function handleResponse(resp){
     resp = resp.toString().toLowerCase();
     var response = {
         "about me" : redirect('content/aboutme.html'),
-        "social media": createMessage('<a href="https://www.instagram.com/d4ve_p/">Instagram</a><br><a href="https://twitter.com/tdaepv">Twitter</a><br><a href="https://myanimelist.net/profile/Dave_P">MyAnimeList</a>'),
+        "social media": redirect('content/socialmedia.html'),
         "help" : createMessage("Lists of available commands:<br>-Help<br>-About me<br>-Social Media<br>-Clear"),
         "clear": createMessage("Consider refreshing the page?")
     }
