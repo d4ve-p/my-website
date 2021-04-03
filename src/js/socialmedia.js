@@ -1,7 +1,7 @@
 const elementId = {
     "instagram" : "https://www.instagram.com/d4ve_p/", 
     "twitter" : "https://twitter.com/tdaepv", 
-    "myanimelist" : "https://twitter.com/tdaepv", 
+    "myanimelist" : "https://myanimelist.net/profile/dave_p", 
     "back" : "../index.html"
 };
 
