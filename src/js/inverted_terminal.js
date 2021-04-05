@@ -1,4 +1,10 @@
-const terminalLine = "https://d4ve-p.github.io/my-website $nyan >";
+const terminalLine = ">";
+const responses = {
+    "bring me to a land that never exists" : createMessage("But Nothing happened"), 
+    "take me to a place deep down below" : createMessage("?"), 
+    "where your power is no longer relevant" : transition
+};
+var streak = 0;
 
 function createUserInput() {
     // Create elements
@@ -13,8 +19,9 @@ function createUserInput() {
     input.type = "text";
     input.className = "terminal-input";
     input.id = "input-user";
-    input.maxLength = 20;
+    input.maxLength = "38";
     input.autocomplete = "off";
+
 
     // Div setup
     div.id = "input-div"
@@ -28,6 +35,9 @@ function createUserInput() {
 };
 
 function createLog() {
+    if (streak > 2) {
+        return;
+    }
     // Create Elements
     var div = document.createElement('div');
     var terminalText = document.createElement('p');
@@ -72,6 +82,22 @@ function createLog() {
     createUserInput();
 };
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+};
+
+async function transition(){
+    var elem = document.getElementById('parent');
+    elem.parentNode.removeChild(elem);
+
+    var newElement = document.createElement('div');
+    newElement.className = 'transition';
+
+    document.body.appendChild(newElement);
+    await sleep(2500);
+    window.location.href = "../../";
+}
+
 function addOnEnterListener(e){
     var element = document.getElementById(e);
 
@@ -86,19 +112,16 @@ function addOnEnterListener(e){
 
 function handleResponse(resp){
     resp = resp.toString().toLowerCase();
-    var response = {
-        "about me" : redirect('content/aboutme.html'),
-        "social media": redirect('content/socialmedia.html'),
-        "help" : createMessage("Lists of available commands:<br>-Help<br>-About me<br>-Social Media<br>-Clear"),
-        "clear": createMessage("Consider refreshing the page?")
+    var keys = Object.keys(responses);
+    if (resp == keys[streak]){
+        var key = keys[streak]
+        streak += 1;
+        return responses[key];
+    } else if (streak == 0){
+        return createMessage("You don't belong here, go back");
+    } else {
+        return createMessage("Wise choice.")
     }
-    if (resp == "dear god"){
-        redirect('secret/')
-    }
-    if ((resp in response) === false){
-        return createMessage("Command not found");
-    }
-    return response[resp];
 };
 
 function redirect(url){
