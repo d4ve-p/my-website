@@ -92,7 +92,9 @@ function handleResponse(resp){
         "help" : createMessage("Lists of available commands:<br>-Help<br>-About me<br>-Social Media<br>-Clear"),
         "clear": createMessage("Consider refreshing the page?")
     }
-    if ((resp in response) === false){
+    if (resp == "experimental"){
+        return redirect("./secret");
+    }else if ((resp in response) === false){
         return createMessage("Command not found");
     }
     return response[resp];
