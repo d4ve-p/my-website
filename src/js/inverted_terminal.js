@@ -1,8 +1,8 @@
 const terminalLine = ">";
 const responses = {
-    "bring me to a land that never exists" : createMessage("But Nothing happened"), 
-    "take me to a place deep down below" : createMessage("?"), 
-    "where your power is no longer relevant" : transition
+    "help" : createMessage("But nothing is here"), 
+    "sus" : createMessage("Not now son"), 
+    "amogus" : transition
 };
 var streak = 0;
 
@@ -118,9 +118,9 @@ function handleResponse(resp){
         streak += 1;
         return responses[key];
     } else if (streak == 0){
-        return createMessage("You don't belong here, go back");
+        return createMessage("Leave.");
     } else {
-        return createMessage("Wise choice.")
+        return createMessage("LEAVE.")
     }
 };
 
