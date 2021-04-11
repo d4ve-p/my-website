@@ -87,9 +87,10 @@ function addOnEnterListener(e){
 function handleResponse(resp){
     resp = resp.toString().toLowerCase();
     var response = {
-        "about me" : redirect('content/aboutme.html'),
-        "social media": redirect('content/socialmedia.html'),
-        "help" : createMessage("Lists of available commands:<br>-Help<br>-About me<br>-Social Media<br>-Clear"),
+        "main" : redirect("./home"),
+        "about me" : createMessage('Currently not available!'),
+        "social media": createMessage('Currently not available'),
+        "help" : createMessage("Lists of available commands:<br>-Help<br>-Main<br>-About me<br>-Social Media<br>-Clear"),
         "clear": createMessage("Consider refreshing the page?")
     }
     if (resp == "experimental"){
